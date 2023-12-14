@@ -34,3 +34,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Tag value validation checkpoint
+        run: |
+          url="https://github.com/$GITHUB_REPOSITORY/releases/tag/${{ vars.DEVOPS_VERSION }}"
+          if curl --output /dev/null --silent --head --fail $url; then
+            echo "${{ vars.DEVOPS_VERSION }} tag exists."
+          else
+            echo "${{ vars.DEVOPS_VERSION }} is not a valid release or tag."
+          fi
+          echo step complete.
