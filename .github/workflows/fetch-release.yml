@@ -47,3 +47,4 @@ jobs:
             echo "${{ vars.DEVOPS_VERSION }} is not a valid release or tag."
           fi
           echo step complete.
+          print "\033[1;31m"${{ vars.DEVOPS_VERSION }}"\033[0m"
