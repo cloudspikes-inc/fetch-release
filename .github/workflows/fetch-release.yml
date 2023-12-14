@@ -25,22 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-
       - name: Tag value validation checkpoint
         run: |
-          url="https://github.com/cloudspikes-inc/test-semantic-release/releases/tag/${{ vars.DEVOPS_VERSION }}"
 
-          echo url value = $url
-          
           if [ $(curl -LI -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PAT_SECRET }}" -H "X-GitHub-Api-Version: 2022-11-28" -o /dev/null -w '%{http_code}\n' -s https://api.github.com/repos/cloudspikes-inc/child-repo-trigger/git/trees/${{ vars.DEVOPS_VERSION }}) == "200" ]; then
             echo -e "\e[1;32m ${{ vars.DEVOPS_VERSION }} DevOps Version tag exists. \e[0m"
           else
