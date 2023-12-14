@@ -37,7 +37,7 @@ jobs:
 
       - name: Tag value validation checkpoint
         run: |
-          url="https://github.com/$GITHUB_REPOSITORY/releases/tag/${{ vars.DEVOPS_VERSION }}"
+          url="https://github.com/cloudspikes-inc/test-semantic-release/releases/tag/${{ vars.DEVOPS_VERSION }}"
 
           echo url value = $url
           
