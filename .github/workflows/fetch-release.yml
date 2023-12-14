@@ -45,6 +45,7 @@ jobs:
             echo "DevOps Version tag exists."
           else
             echo "${{ vars.DEVOPS_VERSION }} is not a valid release or tag."
+            echo -e "\e[1;31m This is red text \e[0m"
             exit 1
           fi
 
