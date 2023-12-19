@@ -25,6 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Commit msg parsing
+        run: |
+          echo commit id: $GITHUB_SHA
+          pwd
+
       - name: Tag value validation checkpoint
         run: |
 
