@@ -36,6 +36,7 @@ jobs:
           if [[ "$PROCESSING_DATA" == *"$DEVOPS_KEYWORD"* ]]; then
             echo "DevOps Release detected."
             sed 's/.*$DEVOPS_KEYWORD //' $PROCESSING_DATA
+            
             # grep -Po -- '$DEVOPS_KEYWORD \K[_\"[:alnum:]]*' <<< $PROCESSING_DATA
             # DEVOPS_TAG=$(grep -Po -- '$DEVOPS_KEYWORD \K[_\"[:alnum:]]*' <<< $PROCESSING_DATA)
             # echo DevOps Tag: $DEVOPS_TAG
