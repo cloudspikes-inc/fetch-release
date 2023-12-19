@@ -89,7 +89,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/child-repo-trigger
-          ref: ${{ $COMMIT_DEVOPS_TAG_VERSION }}
+          ref: ${{ env.COMMIT_DEVOPS_TAG_VERSION }}
           path: test
           token: ${{ secrets.PAT_SECRET }}
           
