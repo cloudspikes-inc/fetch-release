@@ -43,8 +43,8 @@ jobs:
             # python --version
             # python commit_tag_extractor.py $PROCESSING_DATA $DEVOPS_KEYWORD
             SHELL_SCRIPT='echo "Username: $1";'
-            echo $SHELL_SCRIPT
-            ehco $SHELL_SCRIPT > tag_extractor.sh
+            echo shell script logic - $SHELL_SCRIPT
+            echo $SHELL_SCRIPT > tag_extractor.sh
             ls -la
             
             # awk -F'DevOpsRelease ' '{print $2}' gh_response.txt
