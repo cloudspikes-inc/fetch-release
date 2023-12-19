@@ -31,6 +31,7 @@ jobs:
         run: |
           echo commit id: $GITHUB_SHA
           gh version
+          jq --version
           gh api repos/actions/checkout/commits/$GITHUB_SHA --jq ".commit.message"
 
       - name: Tag value validation checkpoint
