@@ -28,6 +28,7 @@ jobs:
       - name: Commit msg parsing
         run: |
           echo commit id: $GITHUB_SHA
+          gh version
           pwd
 
       - name: Tag value validation checkpoint
