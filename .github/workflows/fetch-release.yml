@@ -35,7 +35,8 @@ jobs:
           DEVOPS_KEYWORD='DevOpsRelease'
           if [[ "$PROCESSING_DATA" == *"$DEVOPS_KEYWORD"* ]]; then
             echo "DevOps Release detected."
-            DEVOPS_TAG=$(grep -Po -- '$DEVOPS_KEYWORD \K[_\"[:alnum:]]*' <<< $OPTS)
+            # grep -Po -- '$DEVOPS_KEYWORD \K[_\"[:alnum:]]*' <<< $OPTS
+            DEVOPS_TAG=$(grep -Po -- '$DEVOPS_KEYWORD \K[_\"[:alnum:]]*' <<< $PROCESSING_DATA)
             echo DevOps Tag: $DEVOPS_TAG
           fi
 
