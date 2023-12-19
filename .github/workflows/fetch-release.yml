@@ -33,6 +33,7 @@ jobs:
           PROCESSING_DATA=$(cat gh_response.txt)
           echo commit msg: $PROCESSING_DATA
           DEVOPS_KEYWORD='DevOpsRelease'
+          
           if [[ "$PROCESSING_DATA" == *"$DEVOPS_KEYWORD"* ]]; then
             echo $PROCESSING_DATA DevOps Release detected.
 
