@@ -42,6 +42,7 @@ jobs:
             
             # python --version
             # python commit_tag_extractor.py $PROCESSING_DATA $DEVOPS_KEYWORD
+            
             SHELL_SCRIPT='echo $1'
             echo shell script logic - $SHELL_SCRIPT
             echo $SHELL_SCRIPT > tag_extractor.sh
