@@ -84,4 +84,12 @@ jobs:
           fi
 
           echo successful execution.
+
+      - name: Checkout DevOps Repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/child-repo-trigger
+          ref: $COMMIT_DEVOPS_TAG_VERSION
+          path: test
+          token: ${{ secrets.PAT_SECRET }}
           
