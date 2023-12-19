@@ -36,29 +36,20 @@ jobs:
           DEVOPS_KEYWORD='DevOpsRelease'
           
           if [[ "$PROCESSING_DATA" == *"$DEVOPS_KEYWORD"* ]]; then
+            
             echo $PROCESSING_DATA DevOps Release detected.
-
-            # echo $PROCESSING_DATA | sed 's/.*DevOpsRelease \(="[^"]*"\).*/\1/'
-            
-            # python --version
-            # python commit_tag_extractor.py $PROCESSING_DATA $DEVOPS_KEYWORD
-            
             SHELL_SCRIPT='echo $2'
-            echo shell script logic - $SHELL_SCRIPT
             echo $SHELL_SCRIPT > tag_extractor.sh
-            ls -la
 
-            sh tag_extractor.sh $PROCESSING_DATA
+            DEVOPS_TAG=$(sh tag_extractor.sh $PROCESSING_DATA)
             
-            # awk -F'DevOpsRelease ' '{print $2}' gh_response.txt
-            # sed 's/.*DevOpsRelease //' gh_response.txt
-            # sed -i 's/DevOpsRelease ' gh_response.txt
-
-            
-            # grep -Po -- '$DEVOPS_KEYWORD \K[_\"[:alnum:]]*' <<< $PROCESSING_DATA
-            # DEVOPS_TAG=$(grep -Po -- '$DEVOPS_KEYWORD \K[_\"[:alnum:]]*' <<< $PROCESSING_DATA)
-            # echo DevOps Tag: $DEVOPS_TAG
+            echo "COMMIT_DEVOPS_TAG=$DEVOPS_TAG" >> $GITHUB_ENV
           fi
+
+      - name: Get DevOps extracted Tag value.
+        run: |
+          echo "Commit tag for DevOps repo: $COMMIT_DEVOPS_TAG"
+          pwd
 
       - name: Tag value validation checkpoint
         run: |
