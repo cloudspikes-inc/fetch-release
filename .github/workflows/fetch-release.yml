@@ -40,7 +40,7 @@ jobs:
             echo $PROCESSING_DATA | sed 's/.*DevOpsRelease \(="[^"]*"\).*/\1/'
             python --version
 
-            python commit_tag_extractor.py
+            python commit_tag_extractor.py $PROCESSING_DATA $DEVOPS_KEYWORD
             
             # awk -F'DevOpsRelease ' '{print $2}' gh_response.txt
             # sed 's/.*DevOpsRelease //' gh_response.txt
