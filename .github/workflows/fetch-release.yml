@@ -37,6 +37,7 @@ jobs:
             echo $PROCESSING_DATA DevOps Release detected.
 
             echo $PROCESSING_DATA | sed 's/.*DevOpsRelease \(="[^"]*"\).*/\1/'
+            python --version
             
             # awk -F'DevOpsRelease ' '{print $2}' gh_response.txt
             # sed 's/.*DevOpsRelease //' gh_response.txt
