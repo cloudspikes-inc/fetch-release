@@ -97,4 +97,7 @@ jobs:
         run: |
           pwd
           ls -la
+          cd test
+          pwd
+          ls -la
           
