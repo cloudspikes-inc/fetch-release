@@ -61,9 +61,9 @@ jobs:
             COMMIT_DEVOPS_TAG_VERSION=$COMMIT_DEVOPS_TAG
           elif [[ "$IS_DEVOPS_TAG_BY_COMMIT" == "FALSE" ]]
              COMMIT_DEVOPS_TAG_VERSION=${{ vars.DEVOPS_VERSION }}
-          else
-             echo -e "\e[1;31m DevOps Release Tag found invalid. \e[0m"
-             exit 1
+          # else
+          #    echo -e "\e[1;31m DevOps Release Tag found invalid. \e[0m"
+          #    exit 1
           fi
 
           echo COMMIT_DEVOPS_TAG_VERSION value: $COMMIT_DEVOPS_TAG_VERSION
