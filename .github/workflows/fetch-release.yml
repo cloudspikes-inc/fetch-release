@@ -10,9 +10,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -26,8 +23,6 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Commit msg parsing
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
         
           curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PAT_SECRET }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/cloudspikes-inc/fetch-release/commits/$GITHUB_SHA | jq -r '.commit.message' > gh_response.txt
@@ -54,9 +49,7 @@ jobs:
 
       - name: Get DevOps extracted Tag value.
         run: |
-          # echo "Commit tag for DevOps repo: $COMMIT_DEVOPS_TAG"
-          # echo "IS_DEVOPS_TAG_BY_COMMIT value: $IS_DEVOPS_TAG_BY_COMMIT"
-
+          
           if [ "$IS_DEVOPS_TAG_BY_COMMIT" == "TRUE" ]
           then
             COMMIT_DEVOPS_TAG_VERSION=$COMMIT_DEVOPS_TAG
