@@ -92,4 +92,9 @@ jobs:
           ref: ${{ env.COMMIT_DEVOPS_TAG_VERSION }}
           path: test
           token: ${{ secrets.PAT_SECRET }}
+
+      - name: Repo directory check
+        run: |
+          pwd
+          ls -la
           
