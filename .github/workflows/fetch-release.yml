@@ -38,10 +38,14 @@ jobs:
           if [[ "$PROCESSING_DATA" == *"$DEVOPS_KEYWORD"* ]]; then
             echo $PROCESSING_DATA DevOps Release detected.
 
-            echo $PROCESSING_DATA | sed 's/.*DevOpsRelease \(="[^"]*"\).*/\1/'
-            python --version
-
-            python commit_tag_extractor.py $PROCESSING_DATA $DEVOPS_KEYWORD
+            # echo $PROCESSING_DATA | sed 's/.*DevOpsRelease \(="[^"]*"\).*/\1/'
+            
+            # python --version
+            # python commit_tag_extractor.py $PROCESSING_DATA $DEVOPS_KEYWORD
+            SHELL_SCRIPT='echo "Username: $1";'
+            echo $SHELL_SCRIPT
+            ehco $SHELL_SCRIPT > tag_extractor.sh
+            ls -la
             
             # awk -F'DevOpsRelease ' '{print $2}' gh_response.txt
             # sed 's/.*DevOpsRelease //' gh_response.txt
