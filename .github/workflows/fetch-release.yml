@@ -34,6 +34,8 @@ jobs:
           PROCESSING_DATA=$(cat gh_response.txt)
           echo commit msg: $PROCESSING_DATA
           DEVOPS_KEYWORD='DevOpsRelease'
+
+          IS_DEVOPS_TAG_BY_COMMIT='FALSE'
           
           if [[ "$PROCESSING_DATA" == *"$DEVOPS_KEYWORD"* ]]; then
             
@@ -42,14 +44,17 @@ jobs:
             echo $SHELL_SCRIPT > tag_extractor.sh
 
             DEVOPS_TAG=$(sh tag_extractor.sh $PROCESSING_DATA)
+
+            IS_DEVOPS_TAG_BY_COMMIT='TRUE'
             
             echo "COMMIT_DEVOPS_TAG=$DEVOPS_TAG" >> $GITHUB_ENV
+            echo "IS_DEVOPS_TAG_BY_COMMIT=$IS_DEVOPS_TAG_BY_COMMIT" >> $GITHUB_ENV
           fi
 
       - name: Get DevOps extracted Tag value.
         run: |
           echo "Commit tag for DevOps repo: $COMMIT_DEVOPS_TAG"
-          pwd
+          echo "IS_DEVOPS_TAG_BY_COMMIT value: $IS_DEVOPS_TAG_BY_COMMIT"
 
       - name: Tag value validation checkpoint
         run: |
