@@ -47,9 +47,9 @@ jobs:
 
             IS_DEVOPS_TAG_BY_COMMIT='TRUE'
             
-            echo "COMMIT_DEVOPS_TAG=$DEVOPS_TAG" >> $GITHUB_ENV
           fi
 
+          echo "COMMIT_DEVOPS_TAG=$DEVOPS_TAG" >> $GITHUB_ENV
           echo "IS_DEVOPS_TAG_BY_COMMIT=$IS_DEVOPS_TAG_BY_COMMIT" >> $GITHUB_ENV
 
       - name: Get DevOps extracted Tag value.
