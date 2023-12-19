@@ -41,6 +41,7 @@ jobs:
             # awk -F'DevOpsRelease ' '{print $2}' gh_response.txt
             # sed 's/.*DevOpsRelease //' gh_response.txt
             # sed -i 's/DevOpsRelease ' gh_response.txt
+
             
             # grep -Po -- '$DEVOPS_KEYWORD \K[_\"[:alnum:]]*' <<< $PROCESSING_DATA
             # DEVOPS_TAG=$(grep -Po -- '$DEVOPS_KEYWORD \K[_\"[:alnum:]]*' <<< $PROCESSING_DATA)
