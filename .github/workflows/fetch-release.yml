@@ -54,17 +54,8 @@ jobs:
 
       - name: Get DevOps extracted Tag value.
         run: |
-          echo "Commit tag for DevOps repo: $COMMIT_DEVOPS_TAG"
-          echo "IS_DEVOPS_TAG_BY_COMMIT value: $IS_DEVOPS_TAG_BY_COMMIT"
-
-          # if [[ "$IS_DEVOPS_TAG_BY_COMMIT" == "TRUE" ]]; then
-          #   COMMIT_DEVOPS_TAG_VERSION=$COMMIT_DEVOPS_TAG
-          # elif [[ "$IS_DEVOPS_TAG_BY_COMMIT" == "FALSE" ]]
-          #    COMMIT_DEVOPS_TAG_VERSION=${{ vars.DEVOPS_VERSION }}
-          # else
-          #    echo -e "\e[1;31m DevOps Release Tag found invalid. \e[0m"
-          #    exit 1
-          # fi
+          # echo "Commit tag for DevOps repo: $COMMIT_DEVOPS_TAG"
+          # echo "IS_DEVOPS_TAG_BY_COMMIT value: $IS_DEVOPS_TAG_BY_COMMIT"
 
           if [ "$IS_DEVOPS_TAG_BY_COMMIT" == "TRUE" ]
           then
